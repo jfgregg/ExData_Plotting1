@@ -12,7 +12,11 @@ plot3 <- function(data){
   
   isfeb <- day == "2007-02-01" | day == "2007-02-02"
   
+  ## combine Date and Time columns
+  
   datetime <- as.POSIXct(paste(vals$Date[isfeb == TRUE], vals$Time[isfeb == TRUE]), format="%d/%m/%Y %H:%M:%S")
+  
+  ## select variables from sub-metering columns
   
   x <- as.numeric(as.character(vals$Sub_metering_1[isfeb == TRUE]))
   y <- as.numeric(as.character(vals$Sub_metering_2[isfeb == TRUE]))

@@ -12,8 +12,12 @@ plot2 <- function(data){
   
   isfeb <- day == "2007-02-01" | day == "2007-02-02"
   
+  ## combine Date and Time columns
+  
   datetime <- as.POSIXct(paste(vals$Date[isfeb == TRUE], vals$Time[isfeb == TRUE]), format="%d/%m/%Y %H:%M:%S")
 
+  ## select Global Active Power variable
+  
   x <- as.numeric(as.character(vals$Global_active_power[isfeb == TRUE]))
   
   ##plot graph and copy to a png file
